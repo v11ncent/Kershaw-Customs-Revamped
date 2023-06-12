@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Nav from "./Nav.astro";
 import mobileImage from "../assets/hero-image-mobile.webp";
 import tabletImage from "../assets/hero-image-tablet.webp";
@@ -10,7 +9,7 @@ import desktopImage from "../assets/hero-image-desktop.webp";
   <div class="text-container">
     <Nav />
     <div class="text">
-      <h1>Local Woodworker</h1>
+      <h1>Making cool stuff with my wood</h1>
       <p>
         It is a long established fact that a reader will be distracted by the
         readable content of a page when looking at its layout. The point of
@@ -48,25 +47,22 @@ import desktopImage from "../assets/hero-image-desktop.webp";
   </div>
   <style lang="scss">
     @use "../styles/tokens/_tokens.scss" as tokens;
-    $container-max-height: 70rem;
+    $container-max-height: 100dvh;
 
     section {
       display: grid;
-      // background: center / cover no-repeat url("../assets/hero-background.svg");
 
       @media (min-width: tokens.$bp-desktop) {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: $container-max-height;
         column-gap: 7.5rem;
-        // background: center / cover no-repeat
-        //   url("../assets/hero-background-desktop.svg");
       }
     }
 
     .text-container {
       display: flex;
       flex-direction: column;
-      padding: 1rem;
+      padding: 1rem 1rem 0 1rem;
 
       @media (min-width: tokens.$bp-tablet) {
         padding: 0 3rem;
@@ -85,9 +81,16 @@ import desktopImage from "../assets/hero-image-desktop.webp";
       margin-bottom: 1.5rem;
       font-weight: 600;
       font-size: 1.75rem;
+
+      @media (min-width: tokens.$bp-desktop) {
+        font-size: 3rem;
+        line-height: 1.25;
+        max-width: 55rem;
+      }
     }
 
     p {
+      max-width: 70ch;
       margin-bottom: 3rem;
       line-height: 1.5;
       font-size: 1.25rem;
