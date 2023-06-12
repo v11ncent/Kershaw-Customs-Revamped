@@ -1,5 +1,4 @@
 import { defineConfig } from "astro/config";
-import critters from "astro-critters";
 
 import sitemap from "@astrojs/sitemap";
 
@@ -9,5 +8,8 @@ export default defineConfig({
   experimental: {
     assets: true,
   },
-  integrations: [critters(), sitemap()],
+  integrations: [sitemap()],
+  build: {
+    inlineStylesheets: "auto", // https://github.com/withastro/roadmap/discussions/343#discussioncomment-5539608
+  },
 });
