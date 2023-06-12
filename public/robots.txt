@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kershawcustoms.com/sitemap-index.xml

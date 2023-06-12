@@ -1,0 +1,15 @@
+<section>
+  <slot />
+</section>
+
+<style lang="scss">
+  @use "../styles/tokens/_tokens.scss" as tokens;
+
+  section {
+    margin-block: 4rem;
+
+    @media (min-width: tokens.$bp-tablet) {
+      margin-block: 6.25rem;
+    }
+  }
+</style>
