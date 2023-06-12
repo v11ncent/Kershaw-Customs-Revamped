@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Nav from "./Nav.astro";
 import mobileImage from "../assets/hero-image-mobile.webp";
 import tabletImage from "../assets/hero-image-tablet.webp";
@@ -16,7 +17,7 @@ import desktopImage from "../assets/hero-image-desktop.webp";
         using Lorem Ipsum is that it has a more-or-less normal distribution of
         letters.
       </p>
-      <a href="">Etsy Shop &#8594;</a>
+      <a href="/">Etsy Shop &#8594;</a>
     </div>
   </div>
   <div class="image-container">
@@ -30,8 +31,8 @@ import desktopImage from "../assets/hero-image-desktop.webp";
       <source
         media="(min-width: 1440px)"
         srcset={desktopImage.src}
-        width="660"
-        height="1024"
+        width="1662"
+        height="2160"
       />
       <source
         media="(min-width: 420px)"
@@ -88,6 +89,7 @@ import desktopImage from "../assets/hero-image-desktop.webp";
 
     p {
       margin-bottom: 3rem;
+      line-height: 1.5;
       font-size: 1.25rem;
       color: tokens.$clr-text-muted;
     }
