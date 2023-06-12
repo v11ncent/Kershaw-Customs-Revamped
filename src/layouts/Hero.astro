@@ -1,0 +1,135 @@
+---
+import Nav from "./Nav.astro";
+import mobileImage from "../assets/hero-image-mobile.webp";
+import tabletImage from "../assets/hero-image-tablet.webp";
+import desktopImage from "../assets/hero-image-desktop.webp";
+---
+
+<section>
+  <div class="text-container">
+    <Nav />
+    <div class="text">
+      <h1>Local Woodworker</h1>
+      <p>
+        It is a long established fact that a reader will be distracted by the
+        readable content of a page when looking at its layout. The point of
+        using Lorem Ipsum is that it has a more-or-less normal distribution of
+        letters.
+      </p>
+      <a href="">Etsy Shop &#8594;</a>
+    </div>
+  </div>
+  <div class="image-container">
+    <picture>
+      <source
+        media="(max-width: 419px)"
+        srcset={mobileImage.src}
+        width="320"
+        height="339"
+      />
+      <source
+        media="(min-width: 1440px)"
+        srcset={desktopImage.src}
+        width="660"
+        height="1024"
+      />
+      <source
+        media="(min-width: 420px)"
+        srcset={tabletImage.src}
+        width="648"
+        height="404"
+      />
+      <img
+        src={mobileImage.src}
+        alt="A man in his thirties working on a custom furniture piece in his workshop."
+      />
+    </picture>
+  </div>
+  <style lang="scss">
+    @use "../styles/tokens/_tokens.scss" as tokens;
+    $container-max-height: 70rem;
+
+    section {
+      display: grid;
+      background: center / cover no-repeat url("../assets/hero-background.svg");
+
+      @media (min-width: tokens.$bp-desktop) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: $container-max-height;
+        column-gap: 7.5rem;
+        background: center / cover no-repeat
+          url("../assets/hero-background-desktop.svg");
+      }
+    }
+
+    .text-container {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+
+      @media (min-width: tokens.$bp-tablet) {
+        padding: 0 3rem;
+      }
+
+      @media (min-width: tokens.$bp-desktop) {
+        padding: 3rem 0 3rem 7.5rem;
+      }
+    }
+
+    .text {
+      margin: auto;
+    }
+
+    h1 {
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      font-size: 1.75rem;
+    }
+
+    p {
+      margin-bottom: 3rem;
+      font-size: 1.25rem;
+      color: tokens.$clr-text-muted;
+    }
+
+    a {
+      display: block;
+      padding: 0.5rem 3rem;
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: white;
+      background-color: tokens.$clr-brand;
+
+      @media (min-width: tokens.$bp-tablet) {
+        max-width: fit-content;
+      }
+    }
+
+    .image-container {
+      margin-top: 3rem;
+      min-width: 100%;
+
+      @media (min-width: tokens.$bp-tablet) {
+        margin-top: 4rem;
+        padding: 0 3rem;
+      }
+
+      @media (min-width: tokens.$bp-desktop) {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      max-height: $container-max-height;
+
+      @media (min-width: tokens.$bp-desktop) {
+        object-position: bottom;
+      }
+    }
+  </style>
+</section>

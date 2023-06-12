@@ -1,13 +1,25 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import Nav from "../layouts/Nav.astro";
+import Hero from "../layouts/Hero.astro";
+import About from "../layouts/About.astro";
+import Projects from "../layouts/Projects.astro";
+import Testimonials from "../layouts/Testimonials.astro";
+import CallToAction from "../layouts/CallToAction.astro";
 ---
 
 <Layout
-  title="Woodworker and Knifesmith | Kershaw Customs"
+  title="Woodworker and Knifesmith — Kershaw Customs"
   description="Discover the artistry of fine woodworking and knife smithing from a passionate South Jersey craftsman. Handcrafted masterpieces available through our Etsy store. Explore unique creations today!"
 >
-  <main></main>
+  <main>
+    <Hero />
+    <About />
+    <Projects />
+    <Testimonials />
+    <CallToAction />
+  </main>
 </Layout>
 
 <style lang="scss"></style>
