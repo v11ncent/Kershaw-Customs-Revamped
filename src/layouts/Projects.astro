@@ -1,0 +1,126 @@
+---
+import { Image } from "astro:assets";
+import image from "../assets/cat.jpeg";
+---
+
+<script>
+  import Swiper, { Pagination } from "swiper";
+  import "swiper/css";
+  import "swiper/css/pagination";
+
+  const swiper = new Swiper(".swiper", {
+    modules: [Pagination],
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    scrollbar: {
+      el: ".swiper-scrollbar",
+    },
+  });
+</script>
+
+<section id="projects">
+  <header>
+    <h2>What I've been working on lately</h2>
+  </header>
+  <div class="swiper">
+    <ul class="swiper-wrapper">
+      <li class="swiper-slide">
+        <article class="project">
+          <div class="image-wrapper">
+            <Image src={image} alt="Very cute cat :-)" />
+          </div>
+          <div class="text-wrapper">
+            <h3>Project</h3>
+            <p>
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout.
+            </p>
+          </div>
+        </article>
+      </li>
+      <li class="swiper-slide">
+        <article class="project">
+          <div class="image-wrapper">
+            <Image src={image} alt="Very cute cat :-)" />
+          </div>
+          <div class="text-wrapper">
+            <h3>Project</h3>
+            <p>
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout.
+            </p>
+          </div>
+        </article>
+      </li>
+      <li class="swiper-slide">
+        <article class="project">
+          <div class="image-wrapper">
+            <Image src={image} alt="Very cute cat :-)" />
+          </div>
+          <div class="text-wrapper">
+            <h3>Project</h3>
+            <p>
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout.
+            </p>
+          </div>
+        </article>
+      </li>
+    </ul>
+    <!-- https://stackoverflow.com/questions/65590148/swiperjs-how-do-you-style-the-pagination-bullets -->
+    <div
+      class="swiper-pagination"
+      style="--swiper-pagination-color: #e30e00; --swiper-pagination-bullet-inactive-color: #ff4b4b"
+    >
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../styles/tokens/tokens" as t;
+  section {
+    margin: t.$m-section;
+    padding: t.$p-section;
+    background-color: t.$clr-brand-muted;
+  }
+
+  header {
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.625rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .swiper {
+    // pagination is position: absolute'd so need padding-bottom to give it room
+    padding-bottom: 4rem;
+  }
+
+  .project {
+    img {
+      height: 100%;
+      aspect-ratio: 1;
+      margin-bottom: 2rem;
+    }
+
+    h3 {
+      margin-bottom: 1rem;
+      line-height: 1;
+      font-size: 1.375rem;
+      font-weight: 500;
+      color: t.$clr-text;
+    }
+
+    p {
+      line-height: 1.5;
+      font-size: 1.25rem;
+      color: t.$clr-text-muted;
+    }
+  }
+</style>

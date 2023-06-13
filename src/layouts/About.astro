@@ -1,138 +1,72 @@
----
-import { Image } from "astro:assets";
-import image from "../assets/about-image.png";
----
-
 <section id="story">
-  <div class="section-container">
-    <div class="image-container">
-      <div class="image-container-inner">
-        <Image src={image} alt="Temporary alt image." />
-      </div>
-      <div class="image-container-inner">
-        <Image src={image} alt="Temporary alt image." />
-      </div>
-    </div>
-    <div class="text-container">
-      <h2>My story</h2>
+  <h2 class="sr-only">About me and services sections</h2>
+  <section>
+    <header>
+      <h3>My story</h3>
+    </header>
+    <p>
+      It is a long established fact that a reader will be distracted by the
+      readable content of a page when looking at its layout. The point of using
+      Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+      as opposed to using 'Content here, content here', making it look like
+      readable English.
+    </p>
+  </section>
+  <hr />
+  <section>
+    <header>
+      <h3>Services offered</h3>
+    </header>
+    <div>
       <p>
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum is that it has a more-or-less normal distribution of
-        letters, as opposed to using 'Content here, content here', making it
-        look like readable English. Many desktop publishing packages and web
-        page editors now use Lorem Ipsum as their default model text, and a
-        search for 'lorem ipsum' will uncover many web sites still in their
-        infancy.
+        <span>Knifesmithing</span> - It is a long established fact that a reader
+        will be distracted by the readable content of a page when looking at its
+        layout. It is a long established fact that a reader will be distracted by.
       </p>
-      <p>
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum is that it has a more-or-less normal distribution of
-        letters, as opposed to using 'Content here, content here', making it
-        look like readable English. Many desktop publishing packages and web
-        page editors now use Lorem Ipsum as their default model text, and a
-        search for 'lorem ipsum' will uncover many web sites still in their
-        infancy.
+      <p class="margin-top">
+        <span>Woodworking</span> - It is a long established fact that a reader will
+        be distracted by the readable content of a page when looking at its layout.
+        It is a long established fact that a reader will be distracted by.
       </p>
-      <div class="services">
-        <section>
-          <h3>Woodworking</h3>
-          <p>
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. It is a
-            long established fact that a reader will be distracted by.
-          </p>
-        </section>
-        <section>
-          <h3>Knifesmithing</h3>
-          <p>
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. It is a
-            long established fact that a reader will be distracted by.
-          </p>
-        </section>
-      </div>
     </div>
-  </div>
+  </section>
 </section>
 
 <style lang="scss">
-  @use "../styles/tokens/_tokens.scss" as tokens;
-  $bp-images: 31.25rem;
+  @use "../styles/tokens/tokens" as t;
 
   section#story {
-    display: grid;
-    row-gap: 3rem;
-    margin: 4rem 0;
-    padding: 0 1rem;
-
-    @media (min-width: tokens.$bp-tablet) {
-      padding: 0 3rem;
-    }
-
-    @media (min-width: tokens.$bp-desktop) {
-      padding: 0 7.5rem;
-      margin: 6.25rem 0;
-    }
+    margin: t.$m-section;
+    padding: t.$p-section;
   }
 
-  .section-container {
-    border: 1px solid red;
-    max-width: 100rem;
-    margin: 0 auto;
-
-    @media (min-width: tokens.$bp-desktop) {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      column-gap: 7.5rem;
-    }
-  }
-
-  .image-container img {
-    display: none;
-  }
-
-  .text-container {
-    @media (max-width: tokens.$bp-desktop) {
-      order: -1;
-      margin: 0 auto;
-    }
-  }
-
-  .text-container p:nth-of-type(2) {
-    margin-top: 0.5rem;
-  }
-
-  .services {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+  .margin-top {
     margin-top: 1rem;
-
-    @media (min-width: tokens.$bp-desktop) {
-      margin-top: 4rem;
-    }
   }
 
-  h2 {
+  header {
     margin-bottom: 1.5rem;
-    font-size: 2rem;
-    font-weight: 600;
-    color: tokens.$clr-text;
   }
 
   h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: tokens.$clr-text;
+    font-size: 1.625rem;
+    font-weight: 600;
+    line-height: 1;
+    color: t.$clr-text;
+  }
+
+  hr {
+    margin: 1.5rem 0;
+    opacity: 0.6;
   }
 
   p {
     font-size: 1.25rem;
-    line-height: 1.5;
-    color: tokens.$clr-text-muted;
-    max-width: 70ch;
+    color: t.$clr-text-muted;
+  }
+
+  span {
+    font-weight: 500;
+    color: t.$clr-text;
   }
 </style>

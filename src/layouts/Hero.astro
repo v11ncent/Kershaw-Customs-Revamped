@@ -1,140 +1,64 @@
 ---
-import Nav from "./Nav.astro";
-import mobileImage from "../assets/hero-image-mobile.webp";
-import tabletImage from "../assets/hero-image-tablet.webp";
-import desktopImage from "../assets/hero-image-desktop.webp";
+import { Image } from "astro:assets";
+import image from "../assets/cat.jpeg";
 ---
 
-<section>
-  <div class="text-container">
-    <Nav />
-    <div class="text">
-      <h1>Making cool stuff with my wood</h1>
-      <p>
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum is that it has a more-or-less normal distribution of
-        letters.
-      </p>
-      <a href="/">Etsy Shop &#8594;</a>
-    </div>
+<section id="hero">
+  <div class="text-wrapper">
+    <h1>Crafting quality woodworking pieces in South Jersey</h1>
+    <p>
+      It is a long established fact that a reader will be distracted by the
+      readable content of a page when looking at its layout.
+    </p>
+    <a href="/">Etsy Shop</a>
   </div>
-  <div class="image-container">
-    <picture>
-      <source
-        media="(max-width: 419px)"
-        srcset={mobileImage.src}
-        width="320"
-        height="339"
-      />
-      <source
-        media="(min-width: 1440px)"
-        srcset={desktopImage.src}
-        width="1662"
-        height="2160"
-      />
-      <source
-        media="(min-width: 420px)"
-        srcset={tabletImage.src}
-        width="648"
-        height="404"
-      />
-      <img
-        src={mobileImage.src}
-        alt="A man in his thirties working on a custom furniture piece in his workshop."
-      />
-    </picture>
+  <div class="image-wrapper">
+    <Image src={image} alt="Very cute cat :-)" />
   </div>
-  <style lang="scss">
-    @use "../styles/tokens/_tokens.scss" as tokens;
-    $container-max-height: 100dvh;
-
-    section {
-      display: grid;
-
-      @media (min-width: tokens.$bp-desktop) {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: $container-max-height;
-        column-gap: 7.5rem;
-      }
-    }
-
-    .text-container {
-      display: flex;
-      flex-direction: column;
-      padding: 1rem 1rem 0 1rem;
-
-      @media (min-width: tokens.$bp-tablet) {
-        padding: 0 3rem;
-      }
-
-      @media (min-width: tokens.$bp-desktop) {
-        padding: 3rem 0 3rem 7.5rem;
-      }
-    }
-
-    .text {
-      margin: auto;
-    }
-
-    h1 {
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-      font-size: 1.75rem;
-
-      @media (min-width: tokens.$bp-desktop) {
-        font-size: 3rem;
-        line-height: 1.25;
-        max-width: 55rem;
-      }
-    }
-
-    p {
-      max-width: 70ch;
-      margin-bottom: 3rem;
-      line-height: 1.5;
-      font-size: 1.25rem;
-      color: tokens.$clr-text-muted;
-    }
-
-    a {
-      display: block;
-      padding: 0.5rem 3rem;
-      text-align: center;
-      font-size: 1.25rem;
-      font-weight: 500;
-      color: white;
-      background-color: tokens.$clr-brand;
-
-      @media (min-width: tokens.$bp-tablet) {
-        max-width: fit-content;
-      }
-    }
-
-    .image-container {
-      margin-top: 3rem;
-      min-width: 100%;
-
-      @media (min-width: tokens.$bp-tablet) {
-        margin-top: 4rem;
-        padding: 0 3rem;
-      }
-
-      @media (min-width: tokens.$bp-desktop) {
-        margin: 0;
-        padding: 0;
-      }
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      max-height: $container-max-height;
-
-      @media (min-width: tokens.$bp-desktop) {
-        object-position: bottom;
-      }
-    }
-  </style>
 </section>
+
+<style lang="scss">
+  @use "../styles/tokens/tokens" as t;
+
+  .text-wrapper {
+    padding: 1rem;
+  }
+
+  h1 {
+    margin-bottom: 1.5rem;
+    line-height: 1.25;
+    font-size: 2rem;
+    font-weight: 700;
+    color: t.$clr-text;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    color: t.$clr-text-muted;
+  }
+
+  a {
+    display: block;
+    padding: 0.75rem 3rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+    background-color: t.$clr-brand;
+
+    @media (min-width: t.$bp-tablet) {
+      max-width: fit-content;
+    }
+  }
+
+  .image-wrapper {
+    margin-top: 2rem;
+  }
+
+  img {
+    height: 100%;
+    aspect-ratio: 1;
+  }
+</style>
