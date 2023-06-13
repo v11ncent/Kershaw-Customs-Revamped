@@ -10,6 +10,6 @@ export default defineConfig({
   },
   integrations: [sitemap()],
   build: {
-    inlineStylesheets: "auto", // https://github.com/withastro/roadmap/discussions/343#discussioncomment-5539608
+    inlineStylesheets: "always", // https://github.com/withastro/roadmap/discussions/343#discussioncomment-5539608
   },
 });

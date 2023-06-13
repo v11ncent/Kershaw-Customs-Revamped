@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import MaxWidthContainer from "../components/MaxWidthContainer.astro";
 import image from "../assets/cat.jpeg";
 ---
 
@@ -8,62 +9,64 @@ import image from "../assets/cat.jpeg";
     <h2>Testimonials</h2>
     <p>What my clients are saying</p>
   </header>
-  <ul class="cards">
-    <li>
-      <article class="testimonial">
-        <p class="review">
-          “It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. It is a long
-          established fact that a reader will be distracted by the readable
-          content of a page when looking at its layout. The point of using Lorem
-          Ipsum is that it has a more-or-less.
-        </p>
-        <footer>
-          <Image src={image} alt="Very cute cat :-)" />
-          <div class="meta">
-            <p class="author">Person</p>
-            <p class="product">Purchased product</p>
-          </div>
-        </footer>
-      </article>
-    </li>
-    <li>
-      <article class="testimonial">
-        <p class="review">
-          “It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. It is a long
-          established fact that a reader will be distracted by the readable
-          content of a page when looking at its layout. The point of using Lorem
-          Ipsum is that it has a more-or-less.
-        </p>
-        <footer>
-          <Image src={image} alt="Very cute cat :-)" />
-          <div class="meta">
-            <p class="author">Person</p>
-            <p class="product">Purchased product</p>
-          </div>
-        </footer>
-      </article>
-    </li>
-    <li>
-      <article class="testimonial">
-        <p class="review">
-          “It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. It is a long
-          established fact that a reader will be distracted by the readable
-          content of a page when looking at its layout. The point of using Lorem
-          Ipsum is that it has a more-or-less.
-        </p>
-        <footer>
-          <Image src={image} alt="Very cute cat :-)" />
-          <div class="meta">
-            <p class="author">Person</p>
-            <p class="product">Purchased product</p>
-          </div>
-        </footer>
-      </article>
-    </li>
-  </ul>
+  <MaxWidthContainer>
+    <ul class="cards">
+      <li>
+        <article class="testimonial">
+          <p class="content">
+            “It is a long established fact that a reader will be distracted by
+            the readable content of a page when looking at its layout. It is a
+            long established fact that a reader will be distracted by the
+            readable content of a page when looking at its layout. The point of
+            using Lorem Ipsum is that it has a more-or-less.
+          </p>
+          <footer>
+            <Image src={image} alt="Very cute cat :-)" />
+            <div class="meta">
+              <p class="author">Person</p>
+              <p class="product">Purchased product</p>
+            </div>
+          </footer>
+        </article>
+      </li>
+      <li>
+        <article class="testimonial">
+          <p class="content">
+            “It is a long established fact that a reader will be distracted by
+            the readable content of a page when looking at its layout. It is a
+            long established fact that a reader will be distracted by the
+            readable content of a page when looking at its layout. The point of
+            using Lorem Ipsum is that it has a more-or-less.
+          </p>
+          <footer>
+            <Image src={image} alt="Very cute cat :-)" />
+            <div class="meta">
+              <p class="author">Person</p>
+              <p class="product">Purchased product</p>
+            </div>
+          </footer>
+        </article>
+      </li>
+      <li>
+        <article class="testimonial">
+          <p class="content">
+            “It is a long established fact that a reader will be distracted by
+            the readable content of a page when looking at its layout. It is a
+            long established fact that a reader will be distracted by the
+            readable content of a page when looking at its layout. The point of
+            using Lorem Ipsum is that it has a more-or-less.
+          </p>
+          <footer>
+            <Image src={image} alt="Very cute cat :-)" />
+            <div class="meta">
+              <p class="author">Person</p>
+              <p class="product">Purchased product</p>
+            </div>
+          </footer>
+        </article>
+      </li>
+    </ul>
+  </MaxWidthContainer>
 </section>
 
 <style lang="scss">
@@ -75,12 +78,18 @@ import image from "../assets/cat.jpeg";
   }
 
   .cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(calc(20rem - 2.5rem), 1fr));
+    gap: 1.5rem;
+
+    li {
+      margin: 0 auto;
+    }
   }
 
   .testimonial {
+    max-width: 27.5rem;
+    margin: 0 auto;
     padding: 1.5rem;
     box-shadow: 0rem 0.0625rem 0.625rem rgba(0, 0, 0, 0.1);
   }
@@ -103,8 +112,8 @@ import image from "../assets/cat.jpeg";
     }
   }
 
-  .review {
-    margin-bottom: 1rem;
+  .content {
+    margin-bottom: 2rem;
     line-height: 1.5;
     font-size: 1.25rem;
     color: t.$clr-text-muted;
@@ -117,21 +126,21 @@ import image from "../assets/cat.jpeg";
 
     img {
       border-radius: 100%;
-      max-height: 4rem;
-      max-width: 4rem;
+      max-height: 3.5rem;
+      max-width: 3.5rem;
     }
 
     .meta {
-      font-size: 1.25rem;
-
       .author {
         margin-bottom: 0.125rem;
         line-height: 1;
+        font-size: 1.125rem;
         font-weight: 500;
         color: t.$clr-text;
       }
 
       .product {
+        font-size: 1rem;
         color: t.$clr-text-muted;
       }
     }
