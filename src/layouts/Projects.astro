@@ -33,7 +33,9 @@ import image from "../assets/cat.jpeg";
             <Image src={image} alt="Very cute cat :-)" />
           </div>
           <div class="text-wrapper">
-            <h3>Project</h3>
+            <header>
+              <h3>Project</h3>
+            </header>
             <p>
               It is a long established fact that a reader will be distracted by
               the readable content of a page when looking at its layout.
@@ -47,7 +49,9 @@ import image from "../assets/cat.jpeg";
             <Image src={image} alt="Very cute cat :-)" />
           </div>
           <div class="text-wrapper">
-            <h3>Project</h3>
+            <header>
+              <h3>Project</h3>
+            </header>
             <p>
               It is a long established fact that a reader will be distracted by
               the readable content of a page when looking at its layout.
@@ -61,7 +65,9 @@ import image from "../assets/cat.jpeg";
             <Image src={image} alt="Very cute cat :-)" />
           </div>
           <div class="text-wrapper">
-            <h3>Project</h3>
+            <header>
+              <h3>Project</h3>
+            </header>
             <p>
               It is a long established fact that a reader will be distracted by
               the readable content of a page when looking at its layout.
@@ -81,9 +87,10 @@ import image from "../assets/cat.jpeg";
 
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
+
   section {
     margin: t.$m-section;
-    padding: t.$p-section;
+    padding: 3rem t.$p-section;
     background-color: t.$clr-brand-muted;
   }
 
@@ -92,7 +99,7 @@ import image from "../assets/cat.jpeg";
   }
 
   h2 {
-    font-size: 1.625rem;
+    font-size: t.$fs-section-title;
     font-weight: 600;
     line-height: 1.25;
   }
@@ -109,8 +116,11 @@ import image from "../assets/cat.jpeg";
       margin-bottom: 2rem;
     }
 
-    h3 {
+    header {
       margin-bottom: 1rem;
+    }
+
+    h3 {
       line-height: 1;
       font-size: 1.375rem;
       font-weight: 500;
