@@ -1,7 +1,7 @@
 ---
 export interface Props {
   heading: string;
-  description: string;
+  description?: string;
 }
 
 const { heading, description } = Astro.props;
@@ -9,7 +9,7 @@ const { heading, description } = Astro.props;
 
 <header>
   <h2>{heading}</h2>
-  <p>{description}</p>
+  {description ? <p>{description}</p> : null}
 </header>
 
 <style lang="scss">

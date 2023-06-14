@@ -17,6 +17,7 @@
 
 body {
   font-family: t.$ff-main;
+  padding: clamp(3rem, 5vw, 7rem) 0; // Again, should make var -- $p-section
 }
 
 a {

@@ -30,10 +30,7 @@ import image from "../assets/cat.jpeg";
 
 <section id="projects">
   <MaxWidthContainer>
-    <SectionHeader
-      heading="What I've made"
-      description="Made-to-order pieces made with quality and passion"
-    />
+    <SectionHeader heading="What I've made" />
     <ul class="projects">
       <li class="project">
         <div class="image-container">
@@ -127,9 +124,13 @@ import image from "../assets/cat.jpeg";
       margin: auto 0;
 
       header {
-        font-size: 1.25rem;
         margin-bottom: 0.5rem;
+        font-size: 1.25rem;
         color: t.$clr-text;
+
+        h3 {
+          font-weight: 500;
+        }
       }
 
       p {
