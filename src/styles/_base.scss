@@ -1,4 +1,4 @@
-@use "./tokens/tokens" as tokens;
+@use "./tokens/tokens" as t;
 
 .sr-only {
   position: absolute;
@@ -11,8 +11,12 @@
   border: 0;
 }
 
+::selection {
+  background-color: #ffede9;
+}
+
 body {
-  font-family: tokens.$ff-main;
+  font-family: t.$ff-main;
 }
 
 a {

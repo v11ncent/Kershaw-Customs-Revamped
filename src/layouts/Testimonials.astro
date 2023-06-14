@@ -1,15 +1,16 @@
 ---
 import { Image } from "astro:assets";
 import MaxWidthContainer from "../components/MaxWidthContainer.astro";
+import SectionHeader from "../components/SectionHeader.astro";
 import image from "../assets/cat.jpeg";
 ---
 
 <section id="testimonials">
   <MaxWidthContainer>
-    <header class="section-header">
-      <h2>Testimonials</h2>
-      <p>What my clients are saying</p>
-    </header>
+    <SectionHeader
+      heading="Testimonials"
+      description="What my clients are saying"
+    />
     <ul class="cards">
       <li>
         <article class="testimonial">
@@ -73,13 +74,11 @@ import image from "../assets/cat.jpeg";
   @use "../styles/tokens/tokens" as t;
 
   section {
-    margin: t.$m-section;
     padding: t.$p-section;
   }
 
   .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(calc(20rem - 2.5rem), 1fr));
     gap: 1.5rem;
 
     li {
@@ -91,13 +90,12 @@ import image from "../assets/cat.jpeg";
       }
     }
 
-    @media (min-width: 37.5rem) {
-      grid-template-columns: repeat(auto-fit, minmax(calc(23rem), 1fr));
+    @media (min-width: 50rem) {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (min-width: t.$bp-desktop) {
-      display: flex;
-      justify-content: space-between;
+    @media (min-width: 68.75rem) {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
@@ -105,7 +103,7 @@ import image from "../assets/cat.jpeg";
     margin: 0 auto;
     padding: 1.5rem;
     box-shadow: 0rem 0.0625rem 0.625rem rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
+    border-radius: 0.9375rem;
   }
 
   .section-header {

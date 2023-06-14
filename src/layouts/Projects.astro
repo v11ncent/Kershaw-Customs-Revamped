@@ -1,5 +1,7 @@
 ---
 import { Image } from "astro:assets";
+import MaxWidthContainer from "../components/MaxWidthContainer.astro";
+import SectionHeader from "../components/SectionHeader.astro";
 import image from "../assets/cat.jpeg";
 ---
 
@@ -27,160 +29,118 @@ import image from "../assets/cat.jpeg";
 </script>
 
 <section id="projects">
-  <header>
-    <h2>What I've been working on lately</h2>
-  </header>
-  <div class="swiper">
-    <ul class="swiper-wrapper">
-      <li class="swiper-slide">
-        <article class="project">
-          <div class="image-wrapper">
-            <Image src={image} alt="Very cute cat :-)" />
-          </div>
-          <div class="text-wrapper">
-            <header>
-              <h3>Project</h3>
-            </header>
-            <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout.
-            </p>
-          </div>
-        </article>
+  <MaxWidthContainer>
+    <SectionHeader
+      heading="What I've made"
+      description="Made-to-order pieces made with quality and passion"
+    />
+    <ul class="projects">
+      <li class="project">
+        <div class="image-container">
+          <Image src={image} alt="Very cute cat :-)" />
+        </div>
+        <div class="content-container">
+          <header>
+            <h3>Project</h3>
+          </header>
+          <p>
+            It is a long established fact that a reader will be distracted by
+            the readable content of a page when looking at its layout. The point
+            of using Lorem Ipsum is that it has a more-or-less normal
+            distribution of letters.
+          </p>
+        </div>
       </li>
-      <li class="swiper-slide">
-        <article class="project">
-          <div class="image-wrapper">
-            <Image src={image} alt="Very cute cat :-)" />
-          </div>
-          <div class="text-wrapper">
-            <header>
-              <h3>Project</h3>
-            </header>
-            <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout.
-            </p>
-          </div>
-        </article>
+      <li class="project">
+        <div class="image-container">
+          <Image src={image} alt="Very cute cat :-)" />
+        </div>
+        <div class="content-container">
+          <header>
+            <h3>Project</h3>
+          </header>
+          <p>
+            It is a long established fact that a reader will be distracted by
+            the readable content of a page when looking at its layout. The point
+            of using Lorem Ipsum is that it has a more-or-less normal
+            distribution of letters.
+          </p>
+        </div>
       </li>
-      <li class="swiper-slide">
-        <article class="project">
-          <div class="image-wrapper">
-            <Image src={image} alt="Very cute cat :-)" />
-          </div>
-          <div class="text-wrapper">
-            <header>
-              <h3>Project</h3>
-            </header>
-            <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout.
-            </p>
-          </div>
-        </article>
-      </li>
-      <li class="swiper-slide">
-        <article class="project">
-          <div class="image-wrapper">
-            <Image src={image} alt="Very cute cat :-)" />
-          </div>
-          <div class="text-wrapper">
-            <header>
-              <h3>Project</h3>
-            </header>
-            <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout.
-            </p>
-          </div>
-        </article>
-      </li>
-      <li class="swiper-slide">
-        <article class="project">
-          <div class="image-wrapper">
-            <Image src={image} alt="Very cute cat :-)" />
-          </div>
-          <div class="text-wrapper">
-            <header>
-              <h3>Project</h3>
-            </header>
-            <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout.
-            </p>
-          </div>
-        </article>
-      </li>
-      <li class="swiper-slide">
-        <article class="project">
-          <div class="image-wrapper">
-            <Image src={image} alt="Very cute cat :-)" />
-          </div>
-          <div class="text-wrapper">
-            <header>
-              <h3>Project</h3>
-            </header>
-            <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout.
-            </p>
-          </div>
-        </article>
+      <li class="project">
+        <div class="image-container">
+          <Image src={image} alt="Very cute cat :-)" />
+        </div>
+        <div class="content-container">
+          <header>
+            <h3>Project</h3>
+          </header>
+          <p>
+            It is a long established fact that a reader will be distracted by
+            the readable content of a page when looking at its layout. The point
+            of using Lorem Ipsum is that it has a more-or-less normal
+            distribution of letters.
+          </p>
+        </div>
       </li>
     </ul>
-  </div>
+  </MaxWidthContainer>
 </section>
 
 <style lang="scss">
   @use "../styles/tokens/tokens" as t;
 
   section {
-    margin: t.$m-section;
-    padding: 3rem t.$p-section;
-    background-color: t.$clr-brand-muted;
-    display: none;
-
-    @media (min-width: t.$bp-desktop) {
-      margin-left: min(10vw, 20rem);
-      padding: 5rem;
-    }
+    padding: t.$p-section;
+    background-color: #f6f6f4;
   }
 
-  header {
-    margin-bottom: 1.5rem;
-  }
-
-  h2 {
-    font-size: t.$fs-section-title;
-    font-weight: 600;
-    line-height: 1.25;
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 4.5vw, 6rem);
   }
 
   .project {
-    max-width: 31.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: clamp(1rem, 3vw, 4rem);
+    margin: 0 auto;
+
+    @media (min-width: 53.125rem) {
+      flex-direction: row;
+
+      &:nth-of-type(even) {
+        flex-direction: row-reverse;
+      }
+    }
 
     img {
-      height: 100%;
-      aspect-ratio: 1;
-      margin-bottom: 2rem;
+      border-radius: 1.875rem;
+      width: 40rem;
+      max-height: 25rem;
+      object-fit: cover;
     }
 
-    header {
-      margin-bottom: 1rem;
-    }
+    .content-container {
+      margin: auto 0;
 
-    h3 {
-      line-height: 1;
-      font-size: 1.375rem;
-      font-weight: 500;
-      color: t.$clr-text;
-    }
+      header {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: t.$clr-text;
+      }
 
-    p {
-      line-height: 1.5;
-      font-size: 1.25rem;
-      color: t.$clr-text-muted;
+      p {
+        max-width: 40rem;
+      }
     }
+  }
+
+  p {
+    line-height: 1.5;
+    font-size: 1.25rem;
+    color: t.$clr-text-muted;
   }
 </style>
