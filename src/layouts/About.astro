@@ -1,35 +1,43 @@
+---
+import MaxWidthContainer from "../components/MaxWidthContainer.astro";
+---
+
 <section id="story">
-  <h2 class="sr-only">About me and services sections</h2>
-  <section>
-    <header>
-      <h3>My story</h3>
-    </header>
-    <p>
-      It is a long established fact that a reader will be distracted by the
-      readable content of a page when looking at its layout. The point of using
-      Lorem Ipsum is that it has a more-or-less normal distribution of letters,
-      as opposed to using 'Content here, content here', making it look like
-      readable English.
-    </p>
-  </section>
-  <hr />
-  <section>
-    <header>
-      <h3>Services offered</h3>
-    </header>
-    <div>
+  <MaxWidthContainer>
+    <h2 class="sr-only">About me and services sections</h2>
+    <section class="inner-section">
+      <header>
+        <h3>My story</h3>
+      </header>
       <p>
-        <span>Knifesmithing</span> - It is a long established fact that a reader
-        will be distracted by the readable content of a page when looking at its
-        layout. It is a long established fact that a reader will be distracted by.
+        It is a long established fact that a reader will be distracted by the
+        readable content of a page when looking at its layout. The point of
+        using Lorem Ipsum is that it has a more-or-less normal distribution of
+        letters, as opposed to using 'Content here, content here', making it
+        look like readable English.
       </p>
-      <p class="margin-top">
-        <span>Woodworking</span> - It is a long established fact that a reader will
-        be distracted by the readable content of a page when looking at its layout.
-        It is a long established fact that a reader will be distracted by.
-      </p>
-    </div>
-  </section>
+    </section>
+    <hr />
+    <section class="inner-section">
+      <header>
+        <h3>Services offered</h3>
+      </header>
+      <div>
+        <p>
+          <span>Knifesmithing</span> - It is a long established fact that a reader
+          will be distracted by the readable content of a page when looking at its
+          layout. It is a long established fact that a reader will be distracted
+          by.
+        </p>
+        <p class="margin-top">
+          <span>Woodworking</span> - It is a long established fact that a reader
+          will be distracted by the readable content of a page when looking at its
+          layout. It is a long established fact that a reader will be distracted
+          by.
+        </p>
+      </div>
+    </section>
+  </MaxWidthContainer>
 </section>
 
 <style lang="scss">
@@ -38,6 +46,15 @@
   section#story {
     margin: t.$m-section;
     padding: t.$p-section;
+  }
+
+  .inner-section {
+    @media (min-width: t.$bp-tablet) {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
   }
 
   .margin-top {
@@ -56,11 +73,12 @@
   }
 
   hr {
-    margin: 1.5rem 0;
+    margin: clamp(2rem, 5vw, 5rem) 0;
     opacity: 0.3;
   }
 
   p {
+    max-width: 70ch;
     font-size: 1.25rem;
     color: t.$clr-text-muted;
   }
