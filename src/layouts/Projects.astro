@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import image from "../assets/cat-2.png";
+import image from "../assets/cat.jpeg";
 ---
 
 <script>
@@ -10,8 +10,19 @@ import image from "../assets/cat-2.png";
 
   const swiper = new Swiper(".swiper", {
     modules: [Pagination],
-    slidesPerView: 1.5,
+    slidesPerView: 1.25,
     spaceBetween: "32",
+    breakpoints: {
+      500: {
+        slidesPerView: 1.5,
+      },
+      650: {
+        slidesPerView: 2.5,
+      },
+      1000: {
+        slidesPerView: 3.5,
+      },
+    },
   });
 </script>
 
@@ -118,14 +129,6 @@ import image from "../assets/cat-2.png";
         </article>
       </li>
     </ul>
-    <!-- https://stackoverflow.com/questions/65590148/swiperjs-how-do-you-style-the-pagination-bullets -->
-    <!-- 
-      <div
-        class="swiper-pagination"
-        style="--swiper-pagination-color: #e30e00; --swiper-pagination-bullet-inactive-color: #ff4b4b"
-      >
-      </div> 
-    -->
   </div>
 </section>
 
@@ -136,14 +139,6 @@ import image from "../assets/cat-2.png";
     margin: t.$m-section;
     padding: 3rem t.$p-section;
     background-color: t.$clr-brand-muted;
-    // clip-path: polygon(
-    //   0 80px,
-    //   80px 0,
-    //   100% 0,
-    //   100% 100%,
-    //   80px 100%,
-    //   0 calc(100% - 80px)
-    // );
 
     @media (min-width: t.$bp-desktop) {
       margin-left: min(10vw, 20rem);
@@ -159,11 +154,6 @@ import image from "../assets/cat-2.png";
     font-size: t.$fs-section-title;
     font-weight: 600;
     line-height: 1.25;
-  }
-
-  .swiper {
-    // pagination is position: absolute'd so need padding-bottom to give it room
-    padding-bottom: 4rem;
   }
 
   .project {
