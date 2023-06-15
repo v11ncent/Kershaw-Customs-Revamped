@@ -1,0 +1,30 @@
+---
+export interface Props {
+  text: string;
+  to?: string;
+}
+
+const { text, to = "/" } = Astro.props;
+---
+
+<a href={to} class="cta-button">{text}</a>
+
+<style lang="scss">
+  @use "../styles/tokens/tokens" as t;
+
+  a {
+    display: block;
+    max-width: fit-content;
+    padding: 0.75rem 3rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+    background-color: t.$clr-brand;
+    border-radius: 5rem;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+  }
+</style>

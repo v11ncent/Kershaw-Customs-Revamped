@@ -61,7 +61,9 @@ import MaxWidthContainer from "../components/MaxWidthContainer.astro";
   }
 
   header {
-    margin-bottom: 1.5rem;
+    @media (max-width: t.$bp-tablet) {
+      margin-bottom: 1.5rem;
+    }
   }
 
   h3 {
