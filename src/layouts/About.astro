@@ -1,12 +1,21 @@
 ---
+import { Image } from "astro:assets";
 import MaxWidthContainer from "../components/MaxWidthContainer.astro";
+import storyIcon from "../assets/story-icon.svg";
+import servicesIcon from "../assets/services-icon.svg";
 ---
 
 <section id="story">
   <MaxWidthContainer>
-    <h2 class="sr-only">About me and services sections</h2>
+    <header>
+      <h2 class="sr-only">About me and services sections</h2>
+    </header>
     <section class="inner-section">
       <header>
+        <img
+          src={storyIcon.src}
+          alt="Icon image of a book, to represent a story that is being told about the owner, Devin Kershaw."
+        />
         <h3>My story</h3>
       </header>
       <p>
@@ -20,7 +29,11 @@ import MaxWidthContainer from "../components/MaxWidthContainer.astro";
     <hr />
     <section class="inner-section">
       <header>
-        <h3>Services offered</h3>
+        <img
+          src={servicesIcon.src}
+          alt="Icon image of a log of wood, which represents the woodworking services that Devin Kershaw offers."
+        />
+        <h3>Services</h3>
       </header>
       <div>
         <p>
@@ -54,6 +67,17 @@ import MaxWidthContainer from "../components/MaxWidthContainer.astro";
       flex-wrap: wrap;
       gap: 2rem;
     }
+
+    header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+
+    header > img {
+      transform: scale(1.25);
+      margin-top: 0.125rem;
+    }
   }
 
   .margin-top {
@@ -67,7 +91,7 @@ import MaxWidthContainer from "../components/MaxWidthContainer.astro";
   }
 
   h3 {
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: 600;
     line-height: 1;
     color: t.$clr-text;
@@ -85,6 +109,6 @@ import MaxWidthContainer from "../components/MaxWidthContainer.astro";
   }
 
   span {
-    color: t.$clr-text;
+    color: t.$clr-brand;
   }
 </style>
