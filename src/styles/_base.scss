@@ -2,10 +2,10 @@
 
 .sr-only {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  width: 0.0625rem;
+  height: 0.0625rem;
   padding: 0;
-  margin: -1px;
+  margin: -0.0625rem;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
@@ -17,7 +17,6 @@
 
 body {
   font-family: t.$ff-main;
-  padding-bottom: clamp(3rem, 5vw, 7rem) 0; // Again, should make var -- $p-section
 }
 
 a {
@@ -28,4 +27,15 @@ a {
 ul {
   padding: 0;
   list-style-type: none;
+}
+
+.show-animation {
+  opacity: 0;
+  transform: translateY(3.125rem);
+  transition: ease-in 0.5s;
+}
+
+.show-animation.visible {
+  opacity: 1;
+  transform: translateX(0);
 }

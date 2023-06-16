@@ -5,34 +5,11 @@ import SectionHeader from "../components/SectionHeader.astro";
 import image from "../assets/knife.jpeg";
 ---
 
-<script>
-  import Swiper, { Pagination } from "swiper";
-  import "swiper/css";
-  import "swiper/css/pagination";
-
-  const swiper = new Swiper(".swiper", {
-    modules: [Pagination],
-    slidesPerView: 1.25,
-    spaceBetween: "32",
-    breakpoints: {
-      500: {
-        slidesPerView: 1.5,
-      },
-      650: {
-        slidesPerView: 2.5,
-      },
-      1000: {
-        slidesPerView: 3.5,
-      },
-    },
-  });
-</script>
-
 <section id="projects">
   <MaxWidthContainer>
     <SectionHeader heading="What I've made" />
     <ul class="projects">
-      <li class="project">
+      <li class="project show-animation">
         <div class="image-container">
           <Image src={image} alt="Very cute cat :-)" />
         </div>
@@ -48,7 +25,7 @@ import image from "../assets/knife.jpeg";
           </p>
         </div>
       </li>
-      <li class="project">
+      <li class="project show-animation">
         <div class="image-container">
           <Image src={image} alt="Very cute cat :-)" />
         </div>
@@ -64,7 +41,7 @@ import image from "../assets/knife.jpeg";
           </p>
         </div>
       </li>
-      <li class="project">
+      <li class="project show-animation">
         <div class="image-container">
           <Image src={image} alt="Very cute cat :-)" />
         </div>

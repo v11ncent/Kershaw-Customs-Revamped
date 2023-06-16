@@ -11,14 +11,14 @@ import servicesIcon from "../assets/services-icon.svg";
       <h2 class="sr-only">About me and services sections</h2>
     </header>
     <section class="inner-section">
-      <header>
+      <header class="show-animation">
         <img
           src={storyIcon.src}
           alt="Icon image of a book, to represent a story that is being told about the owner, Devin Kershaw."
         />
         <h3>My story</h3>
       </header>
-      <p>
+      <p class="show-animation">
         It is a long established fact that a reader will be distracted by the
         readable content of a page when looking at its layout. The point of
         using Lorem Ipsum is that it has a more-or-less normal distribution of
@@ -28,14 +28,14 @@ import servicesIcon from "../assets/services-icon.svg";
     </section>
     <hr />
     <section class="inner-section">
-      <header>
+      <header class="show-animation">
         <img
           src={servicesIcon.src}
           alt="Icon image of a log of wood, which represents the woodworking services that Devin Kershaw offers."
         />
         <h3>Services</h3>
       </header>
-      <div>
+      <div class="show-animation">
         <p>
           <span>Knifesmithing</span> - It is a long established fact that a reader
           will be distracted by the readable content of a page when looking at its
@@ -95,6 +95,12 @@ import servicesIcon from "../assets/services-icon.svg";
     font-weight: 600;
     line-height: 1;
     color: t.$clr-text;
+    color: t.$clr-brand;
+    background: linear-gradient(272.22deg, #e30e00 0.97%, #ff392d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
   }
 
   hr {
@@ -109,6 +115,6 @@ import servicesIcon from "../assets/services-icon.svg";
   }
 
   span {
-    color: t.$clr-brand;
+    color: t.$clr-text;
   }
 </style>

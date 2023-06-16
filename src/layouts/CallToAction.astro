@@ -5,8 +5,8 @@ import Button from "../components/Button.astro";
 
 <section id="cta">
   <MaxWidthContainer>
-    <h2>See what I offer</h2>
-    <Button text="Etsy Shop" />
+    <h2 class="show-animation">See what I offer</h2>
+    <Button text="Etsy Shop" classes="show-animation" />
   </MaxWidthContainer>
 
   <style lang="scss">
@@ -31,10 +31,16 @@ import Button from "../components/Button.astro";
     }
 
     h2 {
-      font-size: clamp(2rem, 2.25vw, 2.5rem);
+      font-size: t.$fs-section-title;
+      line-height: 1.25;
       font-weight: 600;
       margin-bottom: 3rem;
       color: t.$clr-brand;
+      background: linear-gradient(272.22deg, #e30e00 0.97%, #ff392d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
     }
   </style>
 </section>
