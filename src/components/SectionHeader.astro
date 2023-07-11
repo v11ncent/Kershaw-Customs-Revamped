@@ -8,6 +8,7 @@ const { heading, description } = Astro.props;
 ---
 
 <header class="show-animation">
+  <span class="accent">-----</span>
   <h2>{heading}</h2>
   {description ? <p>{description}</p> : null}
 </header>
@@ -30,11 +31,10 @@ const { heading, description } = Astro.props;
     font-weight: 600;
     font-size: t.$fs-section-title;
     color: t.$clr-text;
-    // color: t.$clr-brand;
-    // background: linear-gradient(272.22deg, #e30e00 0.97%, #ff392d 100%);
-    // -webkit-background-clip: text;
-    // -webkit-text-fill-color: transparent;
-    // background-clip: text;
-    // text-fill-color: transparent;
+  }
+
+  .accent {
+    color: t.$clr-brand;
+    font-size: 1.5rem;
   }
 </style>

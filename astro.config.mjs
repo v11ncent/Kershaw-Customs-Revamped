@@ -1,10 +1,9 @@
 import { defineConfig } from "astro/config";
-
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://lucky-chimera-6ead29.netlify.app/",
+  site: "https://www.kershawcustoms.com/",
   experimental: {
     assets: true,
   },

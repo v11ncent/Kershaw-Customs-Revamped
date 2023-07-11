@@ -5,7 +5,6 @@ export interface Props {
   classes?: string | "";
 }
 
-import { Image } from "astro:assets";
 import arrowIcon from "../assets/arrow-icon.svg";
 
 const { text, to = "/", classes } = Astro.props;
@@ -27,7 +26,7 @@ const { text, to = "/", classes } = Astro.props;
     gap: 1rem;
     max-width: fit-content;
     padding: 0.75rem 3rem;
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
     font-weight: 500;
     text-align: center;
     color: white;
@@ -37,5 +36,9 @@ const { text, to = "/", classes } = Astro.props;
     &:hover {
       filter: brightness(1.1);
     }
+  }
+
+  img {
+    max-width: clamp(1rem, 1.25vw, 1.25rem);
   }
 </style>
