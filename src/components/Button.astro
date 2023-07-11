@@ -7,7 +7,11 @@ export interface Props {
 
 import arrowIcon from "../assets/arrow-icon.svg";
 
-const { text, to = "/", classes } = Astro.props;
+const {
+  text,
+  to = "https://www.etsy.com/shop/KershawCustoms?ref=simple-shop-header-name&listing_id=1348348783",
+  classes,
+} = Astro.props;
 ---
 
 <a href={to} class=`cta-button ${classes}`>
